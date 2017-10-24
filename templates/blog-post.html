@@ -1,0 +1,16 @@
+{% extends "base-layout.html" %}
+{% block style %}
+ h1 {
+    text-align: center;
+   }
+
+{% endblock %}
+
+
+{% block content %}
+    <h1>{{blog_title}}</h1>
+    <p>
+        {{blog_content}}
+    </p>
+
+{% endblock %}

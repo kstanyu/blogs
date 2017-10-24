@@ -1,0 +1,41 @@
+{% extends "base-layout.html" %}
+
+{% block style %}
+
+{% endblock %}
+
+{% block h1 %}
+{% endblock %}
+
+{%block content %}
+    <form>
+        <table>
+            <thead>
+               <tr>
+                   <th colspan = 2>Login</th>
+               </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <label for = "username">Username</label>
+                    </td>
+                    <td>
+                        <input name = "username" type = "text" placeholder = "Username or Email" id = "username" value = "{{username}}">
+                    </td>
+                <tr>
+                <tr>
+                    <td>
+                        <label for = "password">Password</label>
+                    </td>
+                    <td>
+                        <input name = "password" type = "password" id = "password"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Don't have an account? <a href = "{{url_for("signup")}}">Create one!</a>	</td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+{% endblock %}

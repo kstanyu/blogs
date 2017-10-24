@@ -1,0 +1,58 @@
+{% extends "base-layout.html" %}
+
+{% block style %}
+
+{% endblock %}
+
+{% block h1 %}
+ Signup
+{% endblock %}
+
+{%block content %}
+    <form>
+        <table>
+            <thead>
+                <tr>
+                    <th colsapn = 2>SIGNUP</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <label for = "username">Username</label>
+                    </td>
+                    <td>
+                        <input name = "username" type = "text" placeholder = "USERNAME" id = "username" value = "{{username}}" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for = "password">Password</label>
+                    </td>
+                    <td>
+                        <input name = "password" type = "password" placeholder =  "PASSWORD" id = "password"/>
+                    </td>
+                </tr>
+                    <td>
+                        <label for = "verify">Verify password</label>
+                    </td>
+                    <td>
+                        <input name = "verify" type = "password" placehoder = "Retype Password" id = "verify" />
+                    </td>
+                <tr>
+                    <td>
+                        <label for = "email">Email(Optional)</label>
+                    </td>
+                    <td>
+                        <input name = "email" type = "text" placeholder ="example@gmail.com"  id = "email" value = "{{email}}"/>
+                    </td>        
+                </tr>
+                <tr>
+                    <td colspan = 2>
+                        <input type = "submit" value = "SUBMIT"/>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+{% endblock %}

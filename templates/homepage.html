@@ -1,0 +1,40 @@
+{% extends "base-layout.html" %}
+{% block style %}
+ h1 {
+    text-align: center;
+    font-size: 60   px;
+    font-family: ubuntu;
+   }
+
+   ul {
+       list-style: none;
+       margin: 0;
+       padding: 0;
+    }
+
+
+{% endblock %}
+
+
+{%block content %}
+    <div>
+        <h1>{{title}}</h1> 
+    </div>
+    <div>
+        {% if blogposts | length == 0%}
+        <p>
+            <i>No post.</i>
+        </p>
+        {% else %}
+            <ul>
+                {% for blog_p in blogposts %}
+                <li>
+                    <a href="./blog?id={{blog_p.id}}" >{{blog_p.blog_title}}</a>
+                 <br />
+                  <i> {{blog_p.blog_post}}</i>
+                </li>
+                <br />
+            {% endfor %}
+        {% endif %}
+    </div>
+{% endblock %}
