@@ -5,9 +5,22 @@
 {% endblock %}
 
 {% block h1 %}
-    BLOG USERS
+<b>BLOG POSTS</b>
 {% endblock %}
 
 {%block content %}
-
+    {% if user_entries | length == 0 %}
+        <p> No Post By this user</p>
+    {% else %}
+        {% for user_entry in user_entries %}
+            <h2> 
+               <a href="./blog?id={{user_entry.id}}"> {{user_entry.blog_title}}</a>
+            </h2>
+            <p>
+                {{user_entry.blog_post}}
+            </p>
+            <p>
+                <i>Written by <a href = "./blog?user={{user_entry.author.username}}">{{user_entry.author.username}}</a></i>
+        {% endfor %}
+    {% endif %}
 {% endblock %}

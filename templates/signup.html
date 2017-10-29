@@ -1,15 +1,14 @@
 {% extends "base-layout.html" %}
 
 {% block style %}
-
+    .error {
+        color: red
+    }
 {% endblock %}
 
-{% block h1 %}
- Signup
-{% endblock %}
 
 {%block content %}
-    <form>
+    <form action = "{{url_for("signup")}}", method = "POST">
         <table>
             <thead>
                 <tr>
@@ -23,6 +22,7 @@
                     </td>
                     <td>
                         <input name = "username" type = "text" placeholder = "USERNAME" id = "username" value = "{{username}}" />
+                        <span class = "error">{{username_error}}</span>
                     </td>
                 </tr>
                 <tr>
@@ -31,21 +31,16 @@
                     </td>
                     <td>
                         <input name = "password" type = "password" placeholder =  "PASSWORD" id = "password"/>
+                         <span class = "error">{{password_error}}</span>
                     </td>
                 </tr>
                     <td>
                         <label for = "verify">Verify password</label>
                     </td>
                     <td>
-                        <input name = "verify" type = "password" placehoder = "Retype Password" id = "verify" />
+                        <input name = "verify" type = "password" placeholder = "Retype Password" id = "verify" />
+                        <span class = "error">{{verify_password_error}}</span>
                     </td>
-                <tr>
-                    <td>
-                        <label for = "email">Email(Optional)</label>
-                    </td>
-                    <td>
-                        <input name = "email" type = "text" placeholder ="example@gmail.com"  id = "email" value = "{{email}}"/>
-                    </td>        
                 </tr>
                 <tr>
                     <td colspan = 2>

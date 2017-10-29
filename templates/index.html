@@ -5,9 +5,19 @@
 {% endblock %}
 
 {% block h1 %}
-    BLOG USERS
+<b>BLOG USERS!</b>
 {% endblock %}
 
 {%block content %}
-
+    {% if users | length == 0 %}
+        <p><i>No User Present</i></p>
+    {% else %}
+        <ul>
+            {% for user in users %}
+                <li>
+                    <a href = "./blog?user={{user.username}}">{{user.username}}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
 {% endblock %}

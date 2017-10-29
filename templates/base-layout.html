@@ -7,7 +7,11 @@
             nav {
                 text-align: center;
             } 
+            .error_message {
+                color: red;
+            }
             {% block style %}{% endblock %}
+
         </style>
 
         <title>{% block title %}{% endblock %}</title>
@@ -16,13 +20,23 @@
         <div>
             <header>
                 <nav class = "nav-bar">
-                    <a href = "{{url_for('blog')}}">Home</a>                                      <a href = "{{url_for('newpost')}}">Make A Post</a>
+                    <a href = "{{url_for("index")}}">Home</a>
+                    <a href = "{{url_for("blog")}}">All Post</a>
+                    <a href = "{{url_for('newpost')}}">New A Post</a>
+                    <a href = "{{url_for("login")}}">Login</a>
+                    <a href = "{{url_for("logout")}}">Logout</a>
                 </nav>
                 <div>
-                    {% block h1 %}{% endblock %}
+                   {% block h1 %}{% endblock %}
                 </div>
             </header>
             <main>
+                    {% with messages = get_flashed_messages(with_categories =  True) %}
+                        {% for category,message in messages %}
+                            <p class = "{{error_message}}">{{message}}</p>
+                            <br/ >
+                        {% endfor %}
+                    {% endwith%}
                 {% block content %} {% endblock %}
             </main>
             <footer>

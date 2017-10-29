@@ -32,6 +32,11 @@
                     <a href="./blog?id={{blog_p.id}}" >{{blog_p.blog_title}}</a>
                  <br />
                   <i> {{blog_p.blog_post}}</i>
+                  <p>
+                   <br />
+                      <i>Written by <a href = "./blog?user={{blog_p.author.username}}">{{blog_p.author.username}}</a></i>
+ 
+                  </p>
                 </li>
                 <br />
             {% endfor %}
