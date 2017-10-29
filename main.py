@@ -1,8 +1,9 @@
 
 from flask import Flask, redirect, render_template, request, url_for, session, flash
-#info_check is a design python file with custom parameter check functions
 
+#info_check is a design python file with custom parameter check functions
 from info_checks import *
+
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 
