@@ -137,9 +137,6 @@ def blog():
 
     if "id" in request.args:
         blog_id = request.args.get('id')
-        #if blog_id is None: 
-        #    return render_template("blogs.html", title = "BUILD A BLOG", blogposts = blog_posts)
-        #else:
         blog_entry = Blog.query.get(blog_id)
         return render_template("blog-post.html", blog_title = blog_entry.blog_title, blog_content = blog_entry.blog_post, username = blog_entry.author.username)
     elif "user" in request.args:
@@ -185,10 +182,6 @@ def newpost():
             return redirect(url_for("blog", id = [new_blog.id]))
     
     return render_template("newpost.html")
-
-#@app.route("/newpost", methods = ["POST","GET"])
-#def newpost():
-#    return render_template("newpost.html")
 
 @app.route("/logout")
 def logout():
